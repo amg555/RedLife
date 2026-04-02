@@ -21,34 +21,36 @@ It is an autonomous multi-agent simulation where **hundreds to thousands of spec
 
 ## 🚀 Quick Start (Local Setup)
 
-RedLife decouples the frontend (React/Vite) from the backend (FastAPI/Python) for maximum performance and real-time Server-Sent Events (SSE) streaming.
+RedLife supports two simulation modes:
+1.  **Instant / Lite (Default):** Runs 20 adversarial agents entirely in your browser. No backend or API keys required. Just clone and run the frontend.
+2.  **Scalable / Brutal (Backend):** Scales to 100-1,000+ agents using the Python FastAPI engine. Requires an LLM provider (Ollama or OpenAI/Anthropic).
 
-### 1. The Backend (Python)
+### ⚡ Mode 1: Instant Browser Simulation (Zero Setup)
 ```bash
-# Navigate to backend and install dependencies
-cd backend
-pip install -r requirements.txt
-
-# Create your .env file
-cp .env.example .env
-```
-
-**⚠️ CRITICAL VIRALITY REQUIREMENT:**
-To get the brutal, non-generic, viral-worthy outputs, you MUST use a state-of-the-art reasoning model like `gpt-5.4`, `claude-4.6-opus`, or `claude-4.6-sonnet`. Edit your `.env` to insert your API key. (Local Ollama works but lacks the deep psychological brutality).
-
-```bash
-# Start the FastAPI simulation engine
-uvicorn main:app --port 8002 --reload
-```
-
-### 2. The Frontend (React + Vite + Tailwind)
-```bash
-# Open a new terminal
 cd frontend
 npm install
 npm run dev
 ```
-Open **http://localhost:5173** and brace yourself.
+Open **http://localhost:5173** and start testing immediately.
+
+### 🧠 Mode 2: Scalable Backend Engine (100+ Agents)
+1.  **Backend Setup:**
+    ```bash
+    cd backend
+    pip install -r requirements.txt
+    cp .env.example .env # Add your OPENAI_API_KEY or use local Ollama
+    uvicorn main:app --port 8002 --reload
+    ```
+2.  **Frontend Setup:**
+    Ensure the backend is running, then start the frontend:
+    ```bash
+    cd frontend
+    npm run dev
+    ```
+
+**⚠️ PRO TIP for Mode 2:**
+For the most "viral" and psychologically brutal critiques, we recommend using `gpt-4o` or `claude-3-5-sonnet`. You can configure these in your `.env`. (Local Ollama models like `llama3.1` work great for privacy but may be less aggressive).
+
 
 ---
 
